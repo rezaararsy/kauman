@@ -30,9 +30,21 @@ $this->load->view('dist/_partials/header1');
                       <input required name="tahun" type="number" class="form-control">
                     </div>
                     <div class="form-group">
+                      <label>Urusan</label>
+                      <input required name="urusan" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
                       <label>Usulan yang ingin dimasukkan</label>
                       <textarea required name="usulan" rows="3" class="form-control"></textarea>
-                    </div>                  
+                    </div>   
+                    <div class="form-group">
+                      <label>Permasalahan</label>
+                      <input required name="permasalahan" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Alamat</label>
+                      <input required name="alamat" type="text" class="form-control">
+                    </div>             
                     <div class="form-group">
                       <label>Jenis Usulan</label>
                       <select required name="jenis" class="form-control">
@@ -43,9 +55,10 @@ $this->load->view('dist/_partials/header1');
                       </select>
                     </div>
                     <div class="form-group">
-                      <label>Sasaran OPD</label>
-                      <select required name="sasaran" class="form-control">
-                        <option disabled selected value="">Pilih OPD</option>
+                      <label>Sasaran SKPD</label>
+                      <select required name="skpd_tujuan" class="form-control">
+                        <option disabled selected value="">Pilih SKPD</option>
+                        <option value="Kecamatan Klojen">Kecamatan Klojen</option>
                         <option value="Sekretariat Daerah">Sekretariat Daerah</option>
                         <option value="Dinas Pendidikan dan Kebudayaan">Dinas Pendidikan dan Kebudayaan</option>
                         <option value="Dinas Kesehatan">Dinas Kesehatan</option>
@@ -84,7 +97,23 @@ $this->load->view('dist/_partials/header1');
                         <option value="9">9</option>
                         <option value="10">10</option>
                       </select>
-                    </div>                 
+                    </div>
+                    <div class="form-group">
+                      <label>Koefisien</label>
+                      <input required name="koefisien" type="number" class="form-control">
+                    </div>    
+                    <div class="form-group">
+                      <label>Anggaran</label>
+                      <input required name="anggaran" type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Keterangan</label>
+                      <select required name="keterangan" class="form-control">
+                        <option disabled selected value="">Pilih Keterangan</option>
+                        <option value="Diakomodir">Diakomodir</option>
+                        <option value="Tidak Diakomodir">Tidak Diakomodir</option>
+                      </select>
+                    </div>            
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

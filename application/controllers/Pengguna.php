@@ -19,7 +19,7 @@ class Pengguna extends CI_Controller {
 		$data = array(
 			'title' => "Dashboard"
 		);
-		$this->load->view('dashboard/data_pindah2', $data);
+		$this->load->view('dashboard/data_musrenbang2', $data);
 	}
 
 
@@ -27,7 +27,7 @@ class Pengguna extends CI_Controller {
 		$data = array(
 			'title' => "Dashboard"
 		);
-		$this->load->view('dashboard/data_pindah2', $data);
+		$this->load->view('dashboard/data_musrenbang2', $data);
 	}
 	// public function data_json_perpindahan(){
 	// 	header('Content-Type: application/json');

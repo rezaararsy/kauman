@@ -44,7 +44,7 @@ $this->load->view('dist/_partials/header1');
                       <select id="jenis" name="jenis" class="form-control">
                         <option disabled selected value="">Pilih Jenis Usulan</option>
                         <option selected value="0">Semua</option>
-                        <option value="SARPAS">SARPAS</option>
+                        <option value="SARPRAS">SARPRAS</option>
                         <option value="LK">LK</option>
                         <option value="PM">PM</option>
                       </select>
@@ -74,12 +74,18 @@ $this->load->view('dist/_partials/header1');
                             <th class="text-center">
                               #
                             </th>
-                            <th>Tahun</th>
-                            <th>Usulan</th>
+                            <th>Urusan</th>
                             <th>Jenis</th>
-                            <th>Sasaran</th>
+                            <th>Usulan</th>
+                            <th>Permasalahan</th>
+                            <th>Alamat</th>
+                            <th>SKPD Tujuan</th>
+                            <th>Koefisien</th>
+                            <th>Anggaran</th>
+                            <th>Keterangan</th>
                             <th>RW</th>
-                            <th>Status</th>
+                            <th>Tahun</th>
+                     
                             <!-- <th>Alamat di RT</th>
                             <th>Tgl Pindah</th>
                             <th>Jenis Perpindahan</th> -->

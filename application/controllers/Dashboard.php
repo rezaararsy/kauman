@@ -22,42 +22,6 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'title' => "Dashboard",
 		);
-		$data['masuk'] = $this->m_data->get_masuk();
-		$data['keluar'] = $this->m_data->get_keluar();
-		$data['pindahkeluar'] = array(
-			'3' => $this->m_data->get_bulan_keluar(2022,3),
-			'4' => $this->m_data->get_bulan_keluar(2022,4),
-			'5' => $this->m_data->get_bulan_datang(2022,5),
-			'6' => $this->m_data->get_bulan_keluar(2022,6),
-			'7' => $this->m_data->get_bulan_keluar(2022,7),
-			'8' => $this->m_data->get_bulan_keluar(2022,8),
-			'9' => $this->m_data->get_bulan_keluar(2022,9),
-			'10' => $this->m_data->get_bulan_keluar(2022,10),
-			'11' => $this->m_data->get_bulan_keluar(2022,11),
-			'12' => $this->m_data->get_bulan_keluar(2022,12)	
-		);
-		$data['pindahdatang'] = array(
-			'3' => $this->m_data->get_bulan_datang(2022,3),
-			'4' => $this->m_data->get_bulan_datang(2022,4),
-			'5' => $this->m_data->get_bulan_datang(2022,5),
-			'6' => $this->m_data->get_bulan_datang(2022,6),
-			'7' => $this->m_data->get_bulan_datang(2022,7),
-			'8' => $this->m_data->get_bulan_datang(2022,8),
-			'9' => $this->m_data->get_bulan_datang(2022,9),
-			'10' => $this->m_data->get_bulan_datang(2022,10),
-			'11' => $this->m_data->get_bulan_datang(2022,11),
-			'12' => $this->m_data->get_bulan_datang(2022,12)
-		);
-		$data['pindahluarblimbing'] = $this->m_data->get_keluar11(1);
-		$data['pindahluarklojen'] = $this->m_data->get_keluar11(2);
-		$data['pindahluarkedungkandang'] = $this->m_data->get_keluar11(3);
-		$data['pindahluarsukun'] = $this->m_data->get_keluar11(4);
-		$data['pindahluarlowokwaru'] = $this->m_data->get_keluar11(5);	
-		$data['pindahdatangblimbing'] = $this->m_data->get_masuk11(1);
-		$data['pindahdatangklojen'] = $this->m_data->get_masuk11(2);
-		$data['pindahdatangkedungkandang'] = $this->m_data->get_masuk11(3);
-		$data['pindahdatangsukun'] = $this->m_data->get_masuk11(4);
-		$data['pindahdatanglowokwaru'] = $this->m_data->get_masuk11(5);
 
 		$this->load->view('dashboard/dashboard', $data);
 	}
@@ -77,29 +41,24 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'title' => "Dashboard"
 		);
-		$this->load->view('dashboard/add_data_perpindahan_datang', $data);
+		$this->load->view('dashboard/add_data_musrenbang', $data);
 	}
 
-	public function add_pindah_keluar() {
-		$data = array(
-			'title' => "Dashboard"
-		);
-		$this->load->view('dashboard/add_data_perpindahan_keluar', $data);
-	}
 
 	public function data_musrenbang() {
 		$data = array(
 			'title' => "Dashboard"
 		);
-		$this->load->view('dashboard/data_pindah', $data);
+		$this->load->view('dashboard/data_musrenbang', $data);
 	}
 
-	public function impor_data_pindah() {
+	public function data_pokir() {
 		$data = array(
 			'title' => "Dashboard"
 		);
-		$this->load->view('dashboard/impor_data_pindah', $data);
+		$this->load->view('dashboard/data_pokir', $data);
 	}
+
 
 	public function data_json_perpindahan(){
 		$rw = $this->uri->segment(3,0);
@@ -126,6 +85,12 @@ class Dashboard extends CI_Controller {
 		
 	}
 
+	public function data_json_pokir(){
+		header('Content-Type: application/json');
+			echo $this->m_data->getDataPokir();
+		
+	}
+
 	function deleteData(){ 
         $kode=$this->input->post('id');
         $this->db->where('id',$kode);
@@ -147,19 +112,31 @@ class Dashboard extends CI_Controller {
 	public function inputData()
 	{
 		$tahun = $this->input->post('tahun');
+		$urusan = $this->input->post('urusan');
 		$usulan = $this->input->post('usulan');
+		$permasalahan = $this->input->post('permasalahan');
+		$alamat = $this->input->post('alamat');
 		$jenis = $this->input->post('jenis');
-		$sasaran = $this->input->post('sasaran');
+		$skpd_tujuan = $this->input->post('skpd_tujuan');
 		$rw = $this->input->post('rw');
+		$koefisien = $this->input->post('koefisien');
+		$anggaran = $this->input->post('anggaran');
+		$keterangan = $this->input->post('keterangan');
 		$data = array(
 		'tahun' => $tahun,
+		'urusan' => $urusan,
 		'usulan' => $usulan,
+		'permasalahan' => $permasalahan,
+		'alamat' => $alamat,
 		'jenis' => $jenis,
-		'sasaran' => $sasaran,
-		'rw' => $rw
+		'skpd_tujuan' => $skpd_tujuan,
+		'rw' => $rw,
+		'koefisien' => $koefisien,
+		'anggaran' => $anggaran,
+		'keterangan' => $keterangan,
 		);
 
-		$this->m_data->input_data($data,'musrenbang');
+		$this->m_data->input_data($data,'usulan');
 
 		$this->session->set_flashdata('message', 'Anda berhasil menginput data');
 		redirect(base_url("dashboard/data_musrenbang"));
