@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
           <img src="<?php echo base_url(); ?>assets/logo.png" alt="logo" width="30" style="background-color:white;">
-            <a href="<?php echo base_url(); ?>">LAPOR PAK!</a>
+            <a href="<?php echo base_url(); ?>">SIULAN</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <!-- <a href="<?php echo base_url(); ?>">L-P</a> -->

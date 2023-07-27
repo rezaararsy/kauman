@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/header1');
             <h1>Dashboard</h1>
             
           </div>
-          <h4><?php echo $this->session->flashdata('message');?></h4>
+          <!-- <h4><?php echo $this->session->flashdata('message');?></h4> -->
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
@@ -18,15 +18,15 @@ $this->load->view('dist/_partials/header1');
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Pindah Masuk</h4>
+                    <h4>Jumlah Musrenbang</h4>
                   </div>
                   <div class="card-body">
-                  <?php echo $masuk; ?> 
+                  <!-- <?php echo $masuk; ?>  -->100
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-danger">
                   <i class="far fa-user"></i>
@@ -40,7 +40,7 @@ $this->load->view('dist/_partials/header1');
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-warning">
@@ -72,7 +72,7 @@ $this->load->view('dist/_partials/header1');
               </div>
             </div>                   -->
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
                <div class="card">
                   <div class="card-header">
@@ -155,7 +155,7 @@ $this->load->view('dist/_partials/header1');
                 </div>
               
             </div>
-          </div>
+          </div> -->
       </div>
 <?php $this->load->view('dist/_partials/footer'); ?>
 <?php $this->load->view('dist/_partials/js2'); ?>

@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
           <img src="<?php echo base_url(); ?>assets/logo.png" alt="logo" width="30" style="background-color:white;">
-            <a href="<?php echo base_url(); ?>">LAPOR PAK!</a>
+            <a href="<?php echo base_url(); ?>">SIULAN</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <!-- <a href="<?php echo base_url(); ?>">L-P</a> -->
@@ -18,10 +18,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-home"></i><span>Dashboard</span></a>
               <ul class="dropdown-menu">
               <li class="<?php echo $this->uri->segment(2) == 'dashboard' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard">Home</a></li>
-              <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/data_pindah">Perpindahan Penduduk</a></li>
-              <li style="margin-top: 15px;margin-bottom: 15px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_pindah_datang">Tambah Data Perpindahan Datang</a></li>
-              <li style="margin-top: 25px;margin-bottom: 15px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_pindah_keluar">Tambah Data Perpindahan Keluar</a></li>
-              <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/impor_data_pindah">Impor Data Perpindahan</a></li>
+              <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/data_musrenbang">Daftar Usulan Musrenbang Kelurahan</a></li>
+              <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_musrenbang">Tambah Data Musrenbang</a></li>
+              <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/data_musrenbang">Kamus Usulan Bappeda</a></li>
+              <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_musrenbang">Tambah Data Kamus Usulan Bappeda</a></li>
+              <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/data_musrenbang">Daftar Pokir Kelurahan</a></li>
+              <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_musrenbang">Tambah Data Pokir Kelurahan</a></li>
+              <!-- <li style="margin-top: 25px;margin-bottom: 15px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_pindah_keluar">Tambah Data Perpindahan Keluar</a></li>
+              <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/impor_data_pindah">Impor Data Perpindahan</a></li> -->
                 <!-- <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/index_0">General Dashboard</a></li>
                 <li class="<?php echo $this->uri->segment(2) == '' || $this->uri->segment(2) == 'index' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/index">Ecommerce Dashboard</a></li> -->
               </ul>

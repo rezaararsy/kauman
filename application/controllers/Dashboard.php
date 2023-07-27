@@ -73,7 +73,7 @@ class Dashboard extends CI_Controller {
 		);
 		$this->load->view('dashboard/edit_user', $data);
 	}
-	public function add_pindah_datang() {
+	public function add_musrenbang() {
 		$data = array(
 			'title' => "Dashboard"
 		);
@@ -87,7 +87,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('dashboard/add_data_perpindahan_keluar', $data);
 	}
 
-	public function data_pindah() {
+	public function data_musrenbang() {
 		$data = array(
 			'title' => "Dashboard"
 		);
@@ -102,31 +102,36 @@ class Dashboard extends CI_Controller {
 	}
 
 	public function data_json_perpindahan(){
-		$kecamatan = $this->uri->segment(3,0);
-		$kelurahan = $this->uri->segment(4,0);
-		if ($kecamatan == 0 && $kelurahan == 0)
+		$rw = $this->uri->segment(3,0);
+		$jenis = $this->uri->segment(4,0);
+		if ($rw == 0 && $jenis == 0)
 		{
 			header('Content-Type: application/json');
 			echo $this->m_data->getDataPerpindahan();
 		}
-		elseif($kecamatan != 0 && $kelurahan == 0)
+		elseif($rw != 0 && $jenis == 0)
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan4($kecamatan);
+			echo $this->m_data->getDataPerpindahan4($rw);
+		}
+		elseif($rw != 0 || $rw != "")
+		{	
+			header('Content-Type: application/json');
+			echo $this->m_data->getDataPerpindahan5($jenis);
 		}else
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan3($kecamatan,$kelurahan);
+			echo $this->m_data->getDataPerpindahan3($rw,$jenis);
 		}
 		
 	}
 
 	function deleteData(){ 
-        $kode=$this->input->post('id_perpindahan');
-        $this->db->where('id_perpindahan',$kode);
-        $this->db->delete('perpindahan');
+        $kode=$this->input->post('id');
+        $this->db->where('id',$kode);
+        $this->db->delete('musrenbang');
         $this->session->set_flashdata('message', 'Data Berhasil di Hapus');
-		redirect(base_url("dashboard/data_pindah"));    
+		redirect(base_url("dashboard/data_musrenbang"));    
     }
 	private function stringToSecret(string $string = NULL)
 	{
@@ -141,34 +146,23 @@ class Dashboard extends CI_Controller {
 
 	public function inputData()
 	{
-		$kecamatan = $this->input->post('kecamatan');
-		$kelurahan = $this->input->post('kodekelurahan');
+		$tahun = $this->input->post('tahun');
+		$usulan = $this->input->post('usulan');
+		$jenis = $this->input->post('jenis');
+		$sasaran = $this->input->post('sasaran');
 		$rw = $this->input->post('rw');
-		$rt = $this->input->post('rt');
-		$nik = 0;
-		$str = $this->input->post('nama');
-		$nama = $this->stringToSecret($str);
-		$jenis_pindah =1;
-		$skpwni = $this->input->post('skpwni');
-		$tgl_pindah = $this->input->post('tgl_pindah');
-		$alamat_rt = $this->input->post('alamat_rt');
 		$data = array(
-		'kecamatan' => $kecamatan,
-		'kelurahan' => $kelurahan,
-		'rw' => $rw,
-		'rt' => $rt,
-		'nik' => $nik,
-		'nama' => $nama,
-		'jenis_pindah' => $jenis_pindah,
-		'skpwni' => $skpwni,
-		'tgl_pindah' => $tgl_pindah,
-		'alamat_rt' => $alamat_rt
+		'tahun' => $tahun,
+		'usulan' => $usulan,
+		'jenis' => $jenis,
+		'sasaran' => $sasaran,
+		'rw' => $rw
 		);
 
-		$this->m_data->input_data($data,'perpindahan');
+		$this->m_data->input_data($data,'musrenbang');
 
 		$this->session->set_flashdata('message', 'Anda berhasil menginput data');
-		redirect(base_url("dashboard"));
+		redirect(base_url("dashboard/data_musrenbang"));
 	}
 	public function inputData1()
 	{

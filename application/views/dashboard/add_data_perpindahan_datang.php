@@ -6,7 +6,7 @@ $this->load->view('dist/_partials/header1');
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Tambah Perpindahan Penduduk Datang</h1>
+            <h1>Tambah Data Musrenbang Kelurahan Kauman</h1>
             <!-- <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
               <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -22,74 +22,69 @@ $this->load->view('dist/_partials/header1');
               <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Masukkan Perpindahan Penduduk</h4>
+                    <h4>Masukkan Data Musrenbang</h4>
                   </div>
                   <div class="card-body">
                     <div class="form-group">
-                      <label>Pilih Kecamatan</label>
-                      <select required name="kecamatan" class="form-control" id="zoneSelect" onchange="updateChar()">
-                        <option disabled selected value="">Pilih Kecamatan</option>
-                        <option value="1">Blimbing</option>
-                        <option value="2">Klojen</option>
-                        <option value="5">Lowokwaru</option>
-                        <option value="3">Kedungkandang</option>
-                        <option value="4">Sukun</option>
+                      <label>Tahun Usulan</label>
+                      <input required name="tahun" type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Usulan yang ingin dimasukkan</label>
+                      <textarea required name="usulan" rows="3" class="form-control"></textarea>
+                    </div>                  
+                    <div class="form-group">
+                      <label>Jenis Usulan</label>
+                      <select required name="jenis" class="form-control">
+                        <option disabled selected value="">Pilih Jenis Usulan</option>
+                        <option value="SARPAS">SARPAS</option>
+                        <option value="LK">LK</option>
+                        <option value="PM">PM</option>
                       </select>
                     </div>
                     <div class="form-group">
-                      <label>Pilih Kelurahan</label>
-                      <select required name="kelurahan" class="form-control" id="kelurahanya" onchange="updateChar2()">
-                      <option disabled selected value="">Pilih Kelurahan</option>
-
+                      <label>Sasaran OPD</label>
+                      <select required name="sasaran" class="form-control">
+                        <option disabled selected value="">Pilih OPD</option>
+                        <option value="Sekretariat Daerah">Sekretariat Daerah</option>
+                        <option value="Dinas Pendidikan dan Kebudayaan">Dinas Pendidikan dan Kebudayaan</option>
+                        <option value="Dinas Kesehatan">Dinas Kesehatan</option>
+                        <option value="Dinas Sosial, Pemberdayaan Perempuan, Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana">Dinas Sosial, Pemberdayaan Perempuan, Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana</option>
+                        <option value="Dinas Perhubungan">Dinas Perhubungan</option>
+                        <option value="Dinas Komunikasi dan Informatika">Dinas Komunikasi dan Informatika</option>
+                        <option value="Dinas Pekerjaan Umum, Penataan Ruang, Perumahan dan Kawasan Permukiman">Dinas Pekerjaan Umum, Penataan Ruang, Perumahan dan Kawasan Permukiman</option>
+                        <option value="Dinas Koperasi, Perindustrian dan Perdagangan">Dinas Koperasi, Perindustrian dan Perdagangan</option>
+                        <option value="Dinas Ketahanan Pangan dan Pertanian">Dinas Ketahanan Pangan dan Pertanian</option>
+                        <option value="Dinas Perpustakaan Umum dan Arsip Daerah">Dinas Perpustakaan Umum dan Arsip Daerah</option>
+                        <option value="Dinas Kepemudaan, Olahraga dan Pariwisata">Dinas Kepemudaan, Olahraga dan Pariwisata</option>
+                        <option value="Dinas Lingkungan Hidup">Dinas Lingkungan Hidup</option>
+                        <option value="Dinas Tenaga Kerja, Penanaman Modal dan Pelayanan Terpadu Satu Pintu">Dinas Tenaga Kerja, Penanaman Modal dan Pelayanan Terpadu Satu Pintu</option>
+                        <option value="Dinas Kependudukan dan Pencatatan Sipil">Dinas Kependudukan dan Pencatatan Sipil</option>
+                        <option value="Badan Perencanaan Pembangunan Daerah">Badan Perencanaan Pembangunan Daerah</option>
+                        <option value="Satuan Polisi Pamong Praja ">Satuan Polisi Pamong Praja </option>
+                        <option value="Badan Kepegawaian dan Pengembangan Sumber Daya Manusia">Badan Kepegawaian dan Pengembangan Sumber Daya Manusia</option>
+                        <option value="Badan Kesatuan Bangsa dan Politik">Badan Kesatuan Bangsa dan Politik</option>
+                        <option value="Badan Keuangan dan Aset Daerah">Badan Keuangan dan Aset Daerah</option>
+                        <option value="Badan Penanggulangan Bencana Daerah">Badan Penanggulangan Bencana Daerah</option>
+                        <option value="Badan Pendapatan Daerah">Badan Pendapatan Daerah</option>
                       </select>
-                    </div>
+                    </div> 
                     <div class="form-group">
-                      <label>Masukkan RT</label>
-                      <input required name="rt" type="number" class="form-control">
-                      <!-- <select required name="rt" class="form-control" id="rtnya">
-                      <option disabled selected value="">Pilih RT</option>
-
-                      </select> -->
-                    </div>
-                    <div class="form-group">
-                      <label>Masukkan RW</label>
-                      <input required name="rw" type="number" class="form-control">
-                      <!-- <select required name="rw" class="form-control" id="rwnya">
-                      <option disabled selected value="">Pilih RW</option>
-
-                      </select> -->
-                    </div>
-                    
-                    <div class="form-group">
-                      <label>Alamat di RT</label>
-                      <input required name="alamat_rt" type="text" class="form-control">
-                      <input name="kodekelurahan" id="kodekelurahan" type="hidden" class="form-control">
-                    </div>
-                    <!-- <div class="form-group">
-                      <label>NIK Penduduk Yang Pindah</label>
-                      <input required name="nik" type="number" class="form-control">
-                    </div> -->
-                    <div class="form-group">
-                      <label>Nama Penduduk Yang Pindah</label>
-                      <input required name="nama" type="text" class="form-control">
-                    </div>
-                    <!-- <div class="form-group">
-                      <label>Jenis Perpindahan</label>
-                      <select required name="jenis_pindah" class="form-control">
-                      <option disabled selected value="">Pilih Jenis Perpindahan</option>
-                        <option value="1">Pindah Masuk</option>
-                        <option value="2">Pindah Keluar</option>
+                      <label>RW</label>
+                      <select required name="rw" class="form-control">
+                        <option disabled selected value="">Pilih RW</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                       </select>
-                    </div> -->
-                    <div class="form-group">
-                      <label>No SKDWNI</label>
-                      <input required name="skpwni" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label>Tgl Pindah Datang</label>
-                      <input required name="tgl_pindah" type="date" class="form-control">
-                    </div>
-                    
+                    </div>                 
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

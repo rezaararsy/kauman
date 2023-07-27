@@ -9,8 +9,8 @@ $this->load->view('dist/_partials/header1');
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="<?php echo base_url(); ?>assets/logo.png" alt="logo" width="180" style="background-color:white; border-radius:30px; padding:20px" class="shadow-light">
-              <!-- <h2 style="color: white; margin-top: 20px;">LAPOR PAK !</h1> -->
+              <!-- <img src="<?php echo base_url(); ?>assets/logo.png" alt="logo" width="180" style="background-color:white; border-radius:30px; padding:20px" class="shadow-light"> -->
+              <!-- <h2 style="color: white; margin-top: 20px;">SIULAN !</h1> -->
             </div>
 
             <div class="card card-primary">
@@ -62,7 +62,7 @@ $this->load->view('dist/_partials/header1');
               Don't have an account? <a href="<?php echo base_url(); ?>dist/auth_register">Create One</a>
             </div> -->
             <div class="simple-footer" style="color: white;">
-              Copyright &copy; Dispendukcapil Kota Malang
+              Copyright &copy; Kelurahan Kauman Kota Malang
             </div>
           </div>
         </div>

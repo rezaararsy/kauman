@@ -468,7 +468,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
     }
     
     }
-
+    var urle2 = "<?php echo base_url().'pengguna/data_json_perpindahan/'?>"+kecdata+'/'+keldata;
     var urle = "<?php echo base_url().'dashboard/data_json_perpindahan/'?>"+kecdata+'/'+keldata;
     function updateChar2() {
       console.log("Berjalan2");
@@ -554,20 +554,20 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
       //               .attr("value", 0)
       //               .text("Pilih  Semua Kelurahan"));
       console.log("Jalan");
-      kecdata = 0;
-      keldata = 0;
-      var kec = document.getElementById("zoneSelect");
-      kecdata = kec.value;
-      var kel = document.getElementById("kodekelurahan");
-      var kel2 = document.getElementById("kelurahanya");
-      keldata = kel.value;
-      console.log(kel2.value);
-      if(kel2.value == 0){
-        keldata = 0;
-      }
+      rw = 0;
+      jenis = 0;
+      var rwnya = document.getElementById("rw");
+      rw = rwnya.value;
+      // var kel = document.getElementById("kodekelurahan");
+      var jenisnya = document.getElementById("jenis");
+      jenis = jenisnya.value;
+      // console.log(kel2.value);
+      // if(kel2.value == 0){
+      //   keldata = 0;
+      // }
    
       
-      urle = "<?php echo base_url().'dashboard/data_json_perpindahan/'?>"+kecdata+'/'+keldata;
+      urle = "<?php echo base_url().'dashboard/data_json_perpindahan/'?>"+rw+'/'+jenis;
       // if (x.style.display === "none") {
       //   x.style.display = "block";
       // } else { 
@@ -579,6 +579,40 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
       //$('#table_id').DataTable().ajax.reload();
       console.log(urle);
       $('#table_id').DataTable().ajax.url(urle).load();
+      //$('#table_id').DataTable().clear().draw();
+    }
+
+    function updatedatatable00() {
+      // $('#kelurahanya')
+      //    .prepend($("<option></option>")
+      //               .attr("value", 0)
+      //               .text("Pilih  Semua Kelurahan"));
+      console.log("Jalan");
+      rw = 0;
+      jenis = 0;
+      var rwnya = document.getElementById("rw");
+      rw = rwnya.value;
+      // var kel = document.getElementById("kodekelurahan");
+      var jenisnya = document.getElementById("jenis");
+      jenis = jenisnya.value;
+      // console.log(kel2.value);
+      // if(kel2.value == 0){
+      //   keldata = 0;
+      // }
+   
+      
+      urle = "<?php echo base_url().'pengguna/data_json_perpindahan/'?>"+rw+'/'+jenis;
+      // if (x.style.display === "none") {
+      //   x.style.display = "block";
+      // } else { 
+      //   x.style.display = "none";
+      // }
+      //$('#table_id').DataTable().ajax.reload();
+      // $("#table_id tr").remove(); 
+      //panggiltabel();
+      //$('#table_id').DataTable().ajax.reload();
+      console.log(urle);
+      $('#table_id00').DataTable().ajax.url(urle).load();
       //$('#table_id').DataTable().clear().draw();
     }
     
@@ -595,69 +629,146 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
                 serverSide: true,
                       ajax: {"url": urle, "type": "POST"},
                       columns: [
-                            {"data": "id_perpindahan"},
-                            {"data": "nama",
-                            render: function (data, type, row, meta) {
-                              // const mask = "*";
-                              // let maskedName = data.substring(0,10) + mask.repeat(data.length-4) + data.slice(-5);
-                              // return maskedName;
-                              return data;
-                            }},
-                            {"data": "kecamatan",
-                            render: function (data, type, row, meta) {
-                                if(data==1){
-                                  return 'Blimbing';
-                                }else if(data==2){
-                                  return 'Klojen';
-                                }else if(data==5){
-                                  return 'Lowokwaru';
-                                }else if(data==3){
-                                  return 'Kedungkandang';
-                                }else if(data==4){
-                                  return 'Sukun';
-                                }
-                            }},
-                            {"data": "kelurahan",
-                            render: function (data, type, row, meta) {
-                              if(row['kecamatan']==1){
-                                return blimbing[kodeblimbing.indexOf(parseInt(data))];
-                            
-                              }else if(row['kecamatan']==2){
-                                return klojen[kodeklojen.indexOf(parseInt(data))];
-                             
-                              }else if(row['kecamatan']==5){
-                                return lowokwaru[kodelowokwaru.indexOf(parseInt(data))];
-                             
-                              }else if(row['kecamatan']==3){
-                                return kedungkandang[kodekedungkandang.indexOf(parseInt(data))];
-                             
-                              }else if(row['kecamatan']==4){
-                                return sukun[kodesukun.indexOf(parseInt(data))];
-                              }
-                            }},
-                            {"data": "rt"},
+                            {"data": "id"},
+                            {"data": "tahun"},
+                            {"data": "usulan"},
+                            {"data": "jenis"},
+                            {"data": "sasaran"},
                             {"data": "rw"},
-                            {"data": "alamat_rt"},
-                            {"data": "tgl_pindah"},
-                            {"data": "jenis_pindah",
-                            render: function (data, type, row, meta) {
-                                if(data==1){
-                                  return '<span class="badge badge-success">Pindah Masuk</span>';
-                                }else{
-                                  return '<span class="badge badge-warning">Pindah Keluar</span>';
-                                }
-                            }},
+                            {"data": "status"},
+                            // {"data": "nama",
+                            // render: function (data, type, row, meta) {
+                            //   // const mask = "*";
+                            //   // let maskedName = data.substring(0,10) + mask.repeat(data.length-4) + data.slice(-5);
+                            //   // return maskedName;
+                            //   return data;
+                            // }},
+                            // {"data": "kecamatan",
+                            // render: function (data, type, row, meta) {
+                            //     if(data==1){
+                            //       return 'Blimbing';
+                            //     }else if(data==2){
+                            //       return 'Klojen';
+                            //     }else if(data==5){
+                            //       return 'Lowokwaru';
+                            //     }else if(data==3){
+                            //       return 'Kedungkandang';
+                            //     }else if(data==4){
+                            //       return 'Sukun';
+                            //     }
+                            // }},
+                            // {"data": "kelurahan",
+                            // render: function (data, type, row, meta) {
+                            //   if(row['kecamatan']==1){
+                            //     return blimbing[kodeblimbing.indexOf(parseInt(data))];
+                            
+                            //   }else if(row['kecamatan']==2){
+                            //     return klojen[kodeklojen.indexOf(parseInt(data))];
+                             
+                            //   }else if(row['kecamatan']==5){
+                            //     return lowokwaru[kodelowokwaru.indexOf(parseInt(data))];
+                             
+                            //   }else if(row['kecamatan']==3){
+                            //     return kedungkandang[kodekedungkandang.indexOf(parseInt(data))];
+                             
+                            //   }else if(row['kecamatan']==4){
+                            //     return sukun[kodesukun.indexOf(parseInt(data))];
+                            //   }
+                            // }},
+                            // {"data": "alamat_rt"},
+                            // {"data": "tgl_pindah"},
+                            // {"data": "jenis_pindah",
+                            // render: function (data, type, row, meta) {
+                            //     if(data==1){
+                            //       return '<span class="badge badge-success">Pindah Masuk</span>';
+                            //     }else{
+                            //       return '<span class="badge badge-warning">Pindah Keluar</span>';
+                            //     }
+                            // }},
                             {
-                    "data": "alamat_rt",
+                    "data": "id",
                     render: function (data, type, row, meta) {
-                      //return '<td ><a style="margin-left:10px" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-danger hapus_record">Hapus</a></td></td>';
+                      return '<td ><a style="margin-left:10px" href="javascript:void(0);"  data-kode="'+row['id']+'" class="btn btn-danger hapus_record">Hapus</a></td></td>';
                       // return '<td ><a style="margin-left:10px" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-danger hapus_record">Hapus</a></td><a style="margin-left:10px;margin-top:15px;" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-warning batal_record">Batal Pindah</a></td>';
-                        return '<td><a style="margin:5px" href="javascript:void(0);" onclick="updateChar()" data-kecamatan="'+row['kecamatan']+'" data-kelurahan="'+row['kelurahan']+'" data-rw="'+row['rw']+'" data-rt="'+row['rt']+'" data-nik="'+row['nik']+'" data-nama="'+row['nama']+'" data-jenis_pindah="'+row['jenis_pindah']+'" data-skpwni="'+row['skpwni']+'" data-tgl_pindah="'+row['tgl_pindah']+'" data-alamat_rt="'+row['alamat_rt']+'" data-kode="'+row['id_perpindahan']+'" class="btn btn-primary edit_record">Ubah</a></td><td ><a style="margin:5px" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-danger hapus_record">Hapus</a></td>';
+                        // return '<td><a style="margin:5px" href="javascript:void(0);" onclick="updateChar()" data-kecamatan="'+row['kecamatan']+'" data-kelurahan="'+row['kelurahan']+'" data-rw="'+row['rw']+'" data-rt="'+row['rt']+'" data-nik="'+row['nik']+'" data-nama="'+row['nama']+'" data-jenis_pindah="'+row['jenis_pindah']+'" data-skpwni="'+row['skpwni']+'" data-tgl_pindah="'+row['tgl_pindah']+'" data-alamat_rt="'+row['alamat_rt']+'" data-kode="'+row['id_perpindahan']+'" class="btn btn-primary edit_record">Ubah</a></td><td ><a style="margin:5px" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-danger hapus_record">Hapus</a></td>';
                     }
                 },
                       ]
                 });
             }
+
+            $('#table_id00').DataTable({
+                processing: true,
+                serverSide: true,
+                      ajax: {"url": urle2, "type": "POST"},
+                      columns: [
+                            {"data": "id"},
+                            {"data": "tahun"},
+                            {"data": "usulan"},
+                            {"data": "jenis"},
+                            {"data": "sasaran"},
+                            {"data": "rw"},
+                            {"data": "status"},
+                            // {"data": "nama",
+                            // render: function (data, type, row, meta) {
+                            //   // const mask = "*";
+                            //   // let maskedName = data.substring(0,10) + mask.repeat(data.length-4) + data.slice(-5);
+                            //   // return maskedName;
+                            //   return data;
+                            // }},
+                            // {"data": "kecamatan",
+                            // render: function (data, type, row, meta) {
+                            //     if(data==1){
+                            //       return 'Blimbing';
+                            //     }else if(data==2){
+                            //       return 'Klojen';
+                            //     }else if(data==5){
+                            //       return 'Lowokwaru';
+                            //     }else if(data==3){
+                            //       return 'Kedungkandang';
+                            //     }else if(data==4){
+                            //       return 'Sukun';
+                            //     }
+                            // }},
+                            // {"data": "kelurahan",
+                            // render: function (data, type, row, meta) {
+                            //   if(row['kecamatan']==1){
+                            //     return blimbing[kodeblimbing.indexOf(parseInt(data))];
+                            
+                            //   }else if(row['kecamatan']==2){
+                            //     return klojen[kodeklojen.indexOf(parseInt(data))];
+                             
+                            //   }else if(row['kecamatan']==5){
+                            //     return lowokwaru[kodelowokwaru.indexOf(parseInt(data))];
+                             
+                            //   }else if(row['kecamatan']==3){
+                            //     return kedungkandang[kodekedungkandang.indexOf(parseInt(data))];
+                             
+                            //   }else if(row['kecamatan']==4){
+                            //     return sukun[kodesukun.indexOf(parseInt(data))];
+                            //   }
+                            // }},
+                            // {"data": "alamat_rt"},
+                            // {"data": "tgl_pindah"},
+                            // {"data": "jenis_pindah",
+                            // render: function (data, type, row, meta) {
+                            //     if(data==1){
+                            //       return '<span class="badge badge-success">Pindah Masuk</span>';
+                            //     }else{
+                            //       return '<span class="badge badge-warning">Pindah Keluar</span>';
+                            //     }
+                            // }},
+                //             {
+                //     "data": "id",
+                //     render: function (data, type, row, meta) {
+                //       return '<td ><a style="margin-left:10px" href="javascript:void(0);"  data-kode="'+row['id']+'" class="btn btn-danger hapus_record">Hapus</a></td></td>';
+                //       // return '<td ><a style="margin-left:10px" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-danger hapus_record">Hapus</a></td><a style="margin-left:10px;margin-top:15px;" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-warning batal_record">Batal Pindah</a></td>';
+                //         // return '<td><a style="margin:5px" href="javascript:void(0);" onclick="updateChar()" data-kecamatan="'+row['kecamatan']+'" data-kelurahan="'+row['kelurahan']+'" data-rw="'+row['rw']+'" data-rt="'+row['rt']+'" data-nik="'+row['nik']+'" data-nama="'+row['nama']+'" data-jenis_pindah="'+row['jenis_pindah']+'" data-skpwni="'+row['skpwni']+'" data-tgl_pindah="'+row['tgl_pindah']+'" data-alamat_rt="'+row['alamat_rt']+'" data-kode="'+row['id_perpindahan']+'" class="btn btn-primary edit_record">Ubah</a></td><td ><a style="margin:5px" href="javascript:void(0);"  data-kode="'+row['id_perpindahan']+'" class="btn btn-danger hapus_record">Hapus</a></td>';
+                //     }
+                // },
+                      ]
+                });
+            
 
 
             $(document).ready( function () {
@@ -1065,7 +1176,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
             $('#table_id').on('click','.hapus_record',function(){
                     var id_perpindahan=$(this).data('kode');
                     $('#ModalHapus').modal('show');
-                    $('[name="id_perpindahan"]').val(id_perpindahan);
+                    $('[name="id"]').val(id_perpindahan);
               });
 
               $('#table_id').on('click','.batal_record',function(){

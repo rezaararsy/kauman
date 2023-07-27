@@ -27,7 +27,7 @@ class Auth extends CI_Controller {
 			redirect('pengguna');
 		   }
 		$data = array(
-			'title' => "Aplikasi Pelaporan Perpindahan Penduduk"
+			'title' => "Aplikasi Musrenbang Kelurahan Kauman"
 		);
 		$this->load->view('auth/auth', $data);
 	}	
