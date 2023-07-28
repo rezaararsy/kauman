@@ -21,6 +21,12 @@ class Pengguna extends CI_Controller {
 		);
 		$this->load->view('dashboard/data_musrenbang2', $data);
 	}
+	public function data_pokir() {
+		$data = array(
+			'title' => "Dashboard"
+		);
+		$this->load->view('dashboard/data_pokir2', $data);
+	}
 
 
 	public function data_pindah() {

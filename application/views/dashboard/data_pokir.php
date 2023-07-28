@@ -151,8 +151,8 @@ $this->load->view('dist/_partials/header1');
     </form>
 
 
-    <form id="add-row-form" action="<?php echo base_url().'dashboard/deleteData'?>" method="post">
-      <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <form id="add-row-form" action="<?php echo base_url().'dashboard/deleteData2'?>" method="post">
+      <div class="modal fade" id="ModalHapus2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
           aria-hidden="true">
           <div class="modal-dialog">
               <div class="modal-content">

@@ -13,8 +13,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <ul class="sidebar-menu">
           <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>">Daftar Usulan Musrenbang Kelurahan</a></li>
-            
+          <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>pengguna/data_pokir">Daftar Pokir Kelurahan</a></li>
+          <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i><span>Kamus Usulan</span></a>
+              <ul class="dropdown-menu">
+              <li style="margin-top: 5px;margin-bottom: 10px;" class=""><a class="nav-link" href="<?php echo base_url(); ?>assets/usulan2023.pdf">Kamus Usulan 2023</a></li>
+              <li style="margin-top: 5px;margin-bottom: 10px;" class=""><a class="nav-link" href="<?php echo base_url(); ?>assets/usulan2022.pdf">Kamus Usulan 2022</a></li>
+              <li style="margin-top: 5px;margin-bottom: 5px;" class=""><a class="nav-link" href="<?php echo base_url(); ?>assets/usulan2021.pdf">Kamus Usulan 2021</a></li>
+              </ul>
+            </li>
           </ul>
+          
 
           <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
             <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">

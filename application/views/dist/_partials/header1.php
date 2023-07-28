@@ -142,8 +142,8 @@ if ($this->uri->segment(2) == "layout_transparent") {
   $this->load->view('dist/_partials/layout');
   $this->load->view('dist/_partials/sidebar3');
 }elseif($this->uri->segment(1) == "pengguna"){
-  $this->load->view('dist/_partials/layout');
-  $this->load->view('dist/_partials/sidebar4');
+  // $this->load->view('dist/_partials/layout');
+  $this->load->view('dist/_partials/sidebar2');
 }elseif($this->uri->segment(1) == "pengguna_kelurahan"){
   $this->load->view('dist/_partials/layout');
   $this->load->view('dist/_partials/sidebar5');

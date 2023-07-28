@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller {
 	    $this->load->helper('url','html','form');
 		$this->load->library('datatables');
 	    if($this->session->userdata('status') != "login" || $this->session->userdata('role') != 101 ){
-		   redirect('');
+		   redirect('/auth');
 		  }
 		//   if($this->session->userdata('role') != "102"){
 		// 	redirect('');
@@ -59,6 +59,13 @@ class Dashboard extends CI_Controller {
 		$this->load->view('dashboard/data_pokir', $data);
 	}
 
+	public function add_pokir() {
+		$data = array(
+			'title' => "Dashboard"
+		);
+		$this->load->view('dashboard/add_data_pokir', $data);
+	}
+
 
 	public function data_json_perpindahan(){
 		$rw = $this->uri->segment(3,0);
@@ -93,10 +100,17 @@ class Dashboard extends CI_Controller {
 
 	function deleteData(){ 
         $kode=$this->input->post('id');
-        $this->db->where('id',$kode);
-        $this->db->delete('musrenbang');
+        $this->db->where('id_usulan',$kode);
+        $this->db->delete('usulan');
         $this->session->set_flashdata('message', 'Data Berhasil di Hapus');
 		redirect(base_url("dashboard/data_musrenbang"));    
+    }
+	function deleteData2(){ 
+        $kode=$this->input->post('id');
+        $this->db->where('id_pokir',$kode);
+        $this->db->delete('pokir');
+        $this->session->set_flashdata('message', 'Data Berhasil di Hapus');
+		redirect(base_url("dashboard/data_pokir"));    
     }
 	private function stringToSecret(string $string = NULL)
 	{
@@ -140,6 +154,34 @@ class Dashboard extends CI_Controller {
 
 		$this->session->set_flashdata('message', 'Anda berhasil menginput data');
 		redirect(base_url("dashboard/data_musrenbang"));
+	}
+	public function inputDataPokir()
+	{
+		$prioritas = $this->input->post('prioritas');
+		$alamat = $this->input->post('alamat');
+		$kecamatan = $this->input->post('kecamatan');
+		$kelurahan = $this->input->post('kelurahan');
+		$koefisien = $this->input->post('koefisien');
+		$nilai_usulan = $this->input->post('nilai_usulan');
+		$nilai_akomodir = $this->input->post('nilai_akomodir');
+		$opd_tujuan = $this->input->post('opd_tujuan');
+		$keterangan = $this->input->post('keterangan');
+		$data = array(
+		'prioritas' => $prioritas,
+		'alamat' => $alamat,
+		'kecamatan' => $kecamatan,
+		'kelurahan' => $kelurahan,
+		'koefisien' => $koefisien,
+		'nilai_usulan' => $nilai_usulan,
+		'nilai_akomodir' => $nilai_akomodir,
+		'opd_tujuan' => $opd_tujuan,
+		'keterangan' => $keterangan,
+		);
+
+		$this->m_data->input_data($data,'pokir');
+
+		$this->session->set_flashdata('message', 'Anda berhasil menginput data');
+		redirect(base_url("dashboard/data_pokir"));
 	}
 	public function inputData1()
 	{
