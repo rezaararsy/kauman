@@ -291,6 +291,10 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
       $('#table_id').DataTable({
                 processing: true,
                 serverSide: true,
+                dom: 'Bfrtip',
+                buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
                       ajax: {"url": urle, "type": "POST"},
                       columns: [
                             {"data": "id_usulan"},
@@ -364,6 +368,10 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
                 $('#table_id_pokir').DataTable({
                 processing: true,
                 serverSide: true,
+                dom: 'Bfrtip',
+                buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
                       ajax: {"url": "<?php echo base_url().'dashboard/data_json_pokir/'?>", "type": "POST"},
                       columns: [
                             {"data": "id_pokir"},

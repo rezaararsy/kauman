@@ -75,12 +75,12 @@ class Dashboard extends CI_Controller {
 			header('Content-Type: application/json');
 			echo $this->m_data->getDataMusrenbang();
 		}
-		elseif($jenis != 0 || $jenis != "")
+		elseif($rw != 0 && $jenis == 0)
 		{	
 			header('Content-Type: application/json');
 			echo $this->m_data->getDataMusrenbang4($rw);
 		}
-		elseif($rw != 0 || $rw != "")
+		elseif($jenis != 0 && $rw == 0)
 		{	
 			header('Content-Type: application/json');
 			echo $this->m_data->getDataMusrenbang5($jenis);
