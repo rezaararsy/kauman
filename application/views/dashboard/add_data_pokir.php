@@ -44,15 +44,15 @@ $this->load->view('dist/_partials/header1');
                     </div>
                     <div class="form-group">
                       <label>Koefisien</label>
-                      <input required name="koefisien" type="number" class="form-control">
+                      <input required name="koefisien" type="text" class="form-control">
                     </div>    
                     <div class="form-group">
                       <label>Nilai Usulan</label>
-                      <input required name="nilai_usulan" type="number" class="form-control">
+                      <input required name="nilai_usulan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Nilai Akomodir</label>
-                      <input required name="nilai_akomodir" type="number" class="form-control">
+                      <input required name="nilai_akomodir" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Sasaran OPD</label>

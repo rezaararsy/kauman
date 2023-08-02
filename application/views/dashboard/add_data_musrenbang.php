@@ -49,7 +49,7 @@ $this->load->view('dist/_partials/header1');
                       <label>Jenis Usulan</label>
                       <select required name="jenis" class="form-control">
                         <option disabled selected value="">Pilih Jenis Usulan</option>
-                        <option value="SARPAS">SARPAS</option>
+                        <option value="SARPRAS">SARPRAS</option>
                         <option value="LK">LK</option>
                         <option value="PM">PM</option>
                       </select>
@@ -100,11 +100,11 @@ $this->load->view('dist/_partials/header1');
                     </div>
                     <div class="form-group">
                       <label>Koefisien</label>
-                      <input required name="koefisien" type="number" class="form-control">
+                      <input required name="koefisien" type="text" class="form-control">
                     </div>    
                     <div class="form-group">
                       <label>Anggaran</label>
-                      <input required name="anggaran" type="number" class="form-control">
+                      <input required name="anggaran" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Keterangan</label>

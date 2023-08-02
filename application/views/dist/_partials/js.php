@@ -259,9 +259,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
     var id = 0;
     var data1 = 0;
     var data2 = 0;
-
-
-
     var urle2 = "<?php echo base_url().'pengguna/data_json_musrenbang/'?>"+data1+'/'+data2;
     var urle = "<?php echo base_url().'dashboard/data_json_musrenbang/'?>"+data1+'/'+data2;
 
@@ -283,11 +280,25 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
       $('#table_id').DataTable().ajax.url(urle).load();
     }
 
+    function updatedatatable00() {
 
-    
-    
-    function panggiltabel(){
-      
+    console.log("Jalan");
+    rw = 0;
+    jenis = 0;
+    var rwnya = document.getElementById("rw");
+    rw = rwnya.value;
+
+    var jenisnya = document.getElementById("jenis");
+    jenis = jenisnya.value;
+
+
+    urle2 = "<?php echo base_url().'pengguna/data_json_musrenbang/'?>"+rw+'/'+jenis;
+
+    console.log(urle2);
+    $('#table_id00').DataTable().ajax.url(urle2).load();
+    }
+
+    function panggiltabel(){   
       $('#table_id').DataTable({
                 processing: true,
                 serverSide: true,
@@ -312,15 +323,14 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
                             {
                     "data": "id_usulan",
                     render: function (data, type, row, meta) {
-                      return '<td ><a style="margin-left:10px" href="javascript:void(0);"  data-kode="'+row['id_usulan']+'" class="btn btn-danger hapus_record">Hapus</a></td></td>';
+                      return '<td><a style="margin:5px" href="javascript:void(0);"  data-urusan="'+row['urusan']+'" data-jenis="'+row['jenis']+'" data-usulan="'+row['usulan']+'" data-permasalahan="'+row['permasalahan']+'" data-alamat="'+row['alamat']+'" data-skpd_tujuan="'+row['skpd_tujuan']+'" data-koefisien="'+row['koefisien']+'" data-anggaran="'+row['anggaran']+'" data-keterangan="'+row['keterangan']+'" data-rw="'+row['rw']+'" data-tahun="'+row['tahun']+'" data-kode="'+row['id_usulan']+'" class="btn btn-primary edit_record">Ubah</a></td><td><a href="javascript:void(0);"  data-kode="'+row['id_usulan']+'" class="btn btn-danger hapus_record">Hapus</a></td></td>';
                     }
                 },
                       ]
                 });
             }
 
-            
-
+          
             $('#table_id00').DataTable({
                 processing: true,
                 serverSide: true,
@@ -387,7 +397,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
                             {
                     "data": "id_pokir",
                     render: function (data, type, row, meta) {
-                      return '<td ><a style="margin-left:10px" href="javascript:void(0);"  data-kode="'+row['id_pokir']+'" class="btn btn-danger hapus_record2">Hapus</a></td></td>';
+                      return '<td><a style="margin:5px" href="javascript:void(0);"  data-prioritas="'+row['prioritas']+'" data-alamat="'+row['alamat']+'" data-kecamatan="'+row['kecamatan']+'" data-kelurahan="'+row['kelurahan']+'" data-koefisien="'+row['koefisien']+'" data-nilai_usulan="'+row['nilai_usulan']+'" data-nilai_akomodir="'+row['nilai_akomodir']+'" data-opd_tujuan="'+row['opd_tujuan']+'" data-keterangan="'+row['keterangan']+'" data-kode="'+row['id_pokir']+'" class="btn btn-primary edit_record">Ubah</a></td><td><a href="javascript:void(0);"  data-kode="'+row['id_pokir']+'" class="btn btn-danger hapus_record2">Hapus</a></td></td>';
                     }
                 },
                       ]
@@ -404,6 +414,64 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
                     $('#ModalHapus2').modal('show');
                     $('[name="id"]').val(id_musrenbang);
               });
+
+              $('#table_id').on('click','.edit_record',function(){
+              console.log("Jalan");
+              // updateChar();
+             
+                var id_usulan=$(this).data('kode');
+                var urusan=$(this).data('urusan');                               
+                var jenis=$(this).data('jenis');
+                var usulan=$(this).data('usulan');
+                var permasalahan=$(this).data('permasalahan');
+                var alamat=$(this).data('alamat');               
+                var skpd_tujuan=$(this).data('skpd_tujuan');
+                var koefisien=$(this).data('koefisien');
+                var anggaran=$(this).data('anggaran');               
+                var keterangan=$(this).data('keterangan');
+                var rw=$(this).data('rw');
+                var tahun=$(this).data('tahun');
+                $('#ModalUpdate').modal('show');
+                $('[name="id_usulan"]').val(id_usulan);
+                $('[name="urusan"]').val(urusan);
+                $('[name="jenis"]').val(jenis);
+                $('[name="usulan"]').val(usulan);
+                $('[name="permasalahan"]').val(permasalahan);
+                $('[name="alamat"]').val(alamat);
+                $('[name="skpd_tujuan"]').val(skpd_tujuan);
+                $('[name="koefisien"]').val(koefisien);
+                $('[name="anggaran"]').val(anggaran);
+                $('[name="keterangan"]').val(keterangan);
+                $('[name="rw"]').val(rw);
+                $('[name="tahun"]').val(tahun);
+          });
+
+          $('#table_id_pokir').on('click','.edit_record',function(){
+              console.log("Jalan");
+              // updateChar();
+             
+                var id_pokir=$(this).data('kode');
+                var prioritas=$(this).data('prioritas');                               
+                var alamat=$(this).data('alamat');
+                var kecamatan=$(this).data('kecamatan');
+                var kelurahan=$(this).data('kelurahan');
+                var koefisien=$(this).data('koefisien');               
+                var nilai_usulan=$(this).data('nilai_usulan');
+                var nilai_akomodir=$(this).data('nilai_akomodir');
+                var opd_tujuan=$(this).data('opd_tujuan');               
+                var keterangan=$(this).data('keterangan');
+                $('#ModalUpdate').modal('show');
+                $('[name="id_pokir"]').val(id_pokir);
+                $('[name="prioritas"]').val(prioritas);
+                $('[name="alamat"]').val(alamat);
+                $('[name="kecamatan"]').val(kecamatan);
+                $('[name="kelurahan"]').val(kelurahan);
+                $('[name="koefisien"]').val(koefisien);
+                $('[name="nilai_usulan"]').val(nilai_usulan);
+                $('[name="nilai_akomodir"]').val(nilai_akomodir);
+                $('[name="opd_tujuan"]').val(opd_tujuan);
+                $('[name="keterangan"]').val(keterangan);
+          });
 
        
   </script>

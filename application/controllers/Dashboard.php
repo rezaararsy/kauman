@@ -185,6 +185,73 @@ class Dashboard extends CI_Controller {
 	}
 
 
+	public function updateData()
+	{	
+		$id=$this->input->post('id_usulan');
+		$urusan = $this->input->post('urusan');
+		$jenis = $this->input->post('jenis');
+		$usulan = $this->input->post('usulan');
+		$permasalahan = $this->input->post('permasalahan');
+		$alamat = $this->input->post('alamat');
+		$skpd_tujuan = $this->input->post('skpd_tujuan');
+		$koefisien = $this->input->post('koefisien');
+		$anggaran = $this->input->post('anggaran');
+		$keterangan = $this->input->post('keterangan');
+		$rw = $this->input->post('rw');
+		$tahun = $this->input->post('tahun');
+		$data = array(
+		'urusan' => $urusan,
+		'jenis' => $jenis,
+		'usulan' => $usulan,
+		'permasalahan' => $permasalahan,
+		'alamat' => $alamat,
+		'skpd_tujuan' => $skpd_tujuan,
+		'koefisien' => $koefisien,
+		'anggaran' => $anggaran,
+		'keterangan' => $keterangan,
+		'rw' => $rw,
+		'tahun' => $tahun,
+		);
+		
+		$this->db->where('id_usulan',$id);
+        $this->db->update('usulan', $data);
+
+		$this->session->set_flashdata('message', 'Berhasil mengupdate data');
+		redirect(base_url("dashboard/data_musrenbang"));
+	}
+
+	public function updateDataPokir()
+	{	
+		$id=$this->input->post('id_pokir');
+		$prioritas = $this->input->post('prioritas');
+		$alamat = $this->input->post('alamat');
+		$kecamatan = $this->input->post('kecamatan');
+		$kelurahan = $this->input->post('kelurahan');
+		$koefisien = $this->input->post('koefisien');
+		$nilai_usulan = $this->input->post('nilai_usulan');
+		$nilai_akomodir = $this->input->post('nilai_akomodir');
+		$opd_tujuan = $this->input->post('opd_tujuan');
+		$keterangan = $this->input->post('keterangan');
+		$data = array(
+		'prioritas' => $prioritas,
+		'alamat' => $alamat,
+		'kecamatan' => $kecamatan,
+		'kelurahan' => $kelurahan,
+		'koefisien' => $koefisien,
+		'nilai_usulan' => $nilai_usulan,
+		'nilai_akomodir' => $nilai_akomodir,
+		'opd_tujuan' => $opd_tujuan,
+		'keterangan' => $keterangan,
+		);
+		
+		$this->db->where('id_pokir',$id);
+        $this->db->update('pokir', $data);
+
+		$this->session->set_flashdata('message', 'Berhasil mengupdate data');
+		redirect(base_url("dashboard/data_pokir"));
+	}
+
+
 
 
 }
