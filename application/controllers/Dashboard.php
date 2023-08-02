@@ -67,27 +67,27 @@ class Dashboard extends CI_Controller {
 	}
 
 
-	public function data_json_perpindahan(){
+	public function data_json_musrenbang(){
 		$rw = $this->uri->segment(3,0);
 		$jenis = $this->uri->segment(4,0);
 		if ($rw == 0 && $jenis == 0)
 		{
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan();
+			echo $this->m_data->getDataMusrenbang();
 		}
-		elseif($rw != 0 && $jenis == 0)
+		elseif($jenis != 0 || $jenis != "")
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan4($rw);
+			echo $this->m_data->getDataMusrenbang4($rw);
 		}
 		elseif($rw != 0 || $rw != "")
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan5($jenis);
+			echo $this->m_data->getDataMusrenbang5($jenis);
 		}else
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan3($rw,$jenis);
+			echo $this->m_data->getDataMusrenbang3($rw,$jenis);
 		}
 		
 	}
@@ -183,132 +183,8 @@ class Dashboard extends CI_Controller {
 		$this->session->set_flashdata('message', 'Anda berhasil menginput data');
 		redirect(base_url("dashboard/data_pokir"));
 	}
-	public function inputData1()
-	{
-		$kecamatan = $this->input->post('kecamatan');
-		$kelurahan = $this->input->post('kodekelurahan');
-		$rw = $this->input->post('rw');
-		$rt = $this->input->post('rt');
-		$nik = 0;
-		$str = $this->input->post('nama');
-		$nama = $this->stringToSecret($str);
-		$jenis_pindah = 2;
-		$skpwni = $this->input->post('skpwni');
-		$tgl_pindah = $this->input->post('tgl_pindah');
-		$alamat_rt = $this->input->post('alamat_rt');
-		$data = array(
-		'kecamatan' => $kecamatan,
-		'kelurahan' => $kelurahan,
-		'rw' => $rw,
-		'rt' => $rt,
-		'nik' => $nik,
-		'nama' => $nama,
-		'jenis_pindah' => $jenis_pindah,
-		'skpwni' => $skpwni,
-		'tgl_pindah' => $tgl_pindah,
-		'alamat_rt' => $alamat_rt
-		);
 
-		$this->m_data->input_data($data,'perpindahan');
 
-		$this->session->set_flashdata('message', 'Anda berhasil menginput data');
-		redirect(base_url("dashboard"));
-	}
 
-	public function updateData()
-	{	
-		$id=$this->input->post('id_perpindahan');
-		// $kecamatan = $this->input->post('kecamatan');
-		// $kelurahan = $this->input->post('kelurahan');
-		$rw = $this->input->post('rw');
-		$rt = $this->input->post('rt');
-		// $nik = $this->input->post('nik');
-		//$nik = 0;
-		$str = $this->input->post('nama');
-		$nama = $this->stringToSecret($str);
-		$jenis_pindah = $this->input->post('jenis_pindah');
-		$skpwni = $this->input->post('skpwni');
-		$tgl_pindah = $this->input->post('tgl_pindah');
-		$alamat_rt = $this->input->post('alamat_rt');
-		$data = array(
-		// 'kecamatan' => $kecamatan,
-		// 'kelurahan' => $kelurahan,
-		'rw' => $rw,
-		'rt' => $rt,
-		'nik' => $nik,
-		'nama' => $nama,
-		'jenis_pindah' => $jenis_pindah,
-		'skpwni' => $skpwni,
-		'tgl_pindah' => $tgl_pindah,
-		'alamat_rt' => $alamat_rt
-		);
-		
-		$this->db->where('id_perpindahan',$id);
-        $this->db->update('perpindahan', $data);
-
-		$this->session->set_flashdata('message', 'Berhasil mengupdate data');
-		redirect(base_url("dashboard/data_pindah"));
-	}
-	public function importFile(){
-		
-		$path = 'uploads/';
-		require_once APPPATH . "/third_party/PHPExcel.php";
-		$config['upload_path'] = $path;
-		$config['allowed_types'] = 'xlsx|xls|csv';
-		$config['remove_spaces'] = TRUE;
-		$this->load->library('upload', $config);
-		$this->upload->initialize($config);            
-		if (!$this->upload->do_upload('uploadFile')) {
-		$error = array('error' => $this->upload->display_errors());
-		} else {
-		$data = array('upload_data' => $this->upload->data());
-		}
-		if(empty($error)){
-		if (!empty($data['upload_data']['file_name'])) {
-		$import_xls_file = $data['upload_data']['file_name'];
-		} else {
-		$import_xls_file = 0;
-		}
-		$inputFileName = $path . $import_xls_file;
-		try {
-		$inputFileType = PHPExcel_IOFactory::identify($inputFileName);
-		$objReader = PHPExcel_IOFactory::createReader($inputFileType);
-		$objPHPExcel = $objReader->load($inputFileName);
-		$allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
-		$flag = true;
-		$i=0;
-		foreach ($allDataInSheet as $value) {
-		if($flag){
-		$flag =false;
-		continue;
-		}
-		$inserdata[$i]['kecamatan'] = $value['A'];
-		$inserdata[$i]['kelurahan'] = $value['B'];
-		$inserdata[$i]['rw'] = $value['C'];
-		$inserdata[$i]['rt'] = $value['D'];
-		$nama = $this->stringToSecret($value['E']);
-		$inserdata[$i]['nama'] = $nama;
-		$inserdata[$i]['jenis_pindah'] = $value['F'];
-		$inserdata[$i]['skpwni'] = $value['G'];
-		$inserdata[$i]['tgl_pindah'] = $value['H'];
-		$inserdata[$i]['alamat_rt'] = $value['I'];
-		$i++;
-		}               
-		$result = $this->m_data->insertImport($inserdata);   
-		if($result){
-		echo "Imported successfully";
-		}else{
-		echo "ERROR !";
-		}             
-		} catch (Exception $e) {
-		die('Error loading file "' . pathinfo($inputFileName, PATHINFO_BASENAME)
-		. '": ' .$e->getMessage());
-		}
-		}else{
-		echo $error['error'];
-		}
-		
-		redirect(base_url("dashboard"));
-	}
 
 }

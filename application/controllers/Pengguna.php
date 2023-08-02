@@ -8,10 +8,6 @@ class Pengguna extends CI_Controller {
 	    $this->load->model('m_data');
 	    $this->load->helper('url');
 		$this->load->library('datatables');
-	    // if($this->session->userdata('status') != "login" || $this->session->userdata('role') != 102 ){
-		//    redirect('');
-		//   }
-
 	  }
 
 	public function index() {
@@ -29,35 +25,27 @@ class Pengguna extends CI_Controller {
 	}
 
 
-	public function data_pindah() {
-		$data = array(
-			'title' => "Dashboard"
-		);
-		$this->load->view('dashboard/data_musrenbang2', $data);
-	}
-
-
-	public function data_json_perpindahan(){
+	public function data_json_musrenbang(){
 		$rw = $this->uri->segment(3,0);
 		$jenis = $this->uri->segment(4,0);
 		if ($rw == 0 && $jenis == 0)
 		{
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan();
+			echo $this->m_data->getDataMusrenbang();
 		}
 		elseif($rw != 0 && $jenis == 0)
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan4($rw);
+			echo $this->m_data->getDataMusrenbang4($rw);
 		}
 		elseif($rw != 0 || $rw != "")
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan5($jenis);
+			echo $this->m_data->getDataMusrenbang5($jenis);
 		}else
 		{	
 			header('Content-Type: application/json');
-			echo $this->m_data->getDataPerpindahan3($rw,$jenis);
+			echo $this->m_data->getDataMusrenbang3($rw,$jenis);
 		}
 		
 	}
@@ -67,15 +55,6 @@ class Pengguna extends CI_Controller {
 			echo $this->m_data->getDataPokir();
 		
 	}
-
-	function deleteData(){ 
-        $kode=$this->input->post('id');
-        $this->db->where('id',$kode);
-        $this->db->delete('musrenbang');
-        $this->session->set_flashdata('message', 'Data Berhasil di Hapus');
-		redirect(base_url("dashboard/data_musrenbang"));    
-    }
-
 
 
 }

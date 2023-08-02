@@ -12,7 +12,6 @@ $this->load->view('dist/_partials/header1');
           </div>
 
           <div class="section-body">
-            <!-- <form action="<?php echo base_url(). 'pengguna/data_pindah/'; ?>" method="post"> -->
             <div class="row">
               <div class="col-md-6 col-xs-12">
                 <div class="select">
