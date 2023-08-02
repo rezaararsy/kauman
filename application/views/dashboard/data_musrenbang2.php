@@ -85,8 +85,6 @@ $this->load->view('dist/_partials/header1');
                             <th>Keterangan</th>
                             <th>RW</th>
                             <th>Tahun</th>
-                     
-
                           </tr>
                         </thead>
 

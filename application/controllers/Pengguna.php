@@ -35,14 +35,7 @@ class Pengguna extends CI_Controller {
 		);
 		$this->load->view('dashboard/data_musrenbang2', $data);
 	}
-	// public function data_json_perpindahan(){
-	// 	header('Content-Type: application/json');
-    //     $rt= $this->session->userdata('rt');
-    //     $rw=$this->session->userdata('rw');
-    //     $kelurahan=$this->session->userdata('kelurahan');
-    //     $kecamatan=$this->session->userdata('kecamatan');
-	// 	echo $this->m_data->getDataPerpindahan2($rt,$rw,$kelurahan,$kecamatan);
-	// }
+
 
 	public function data_json_perpindahan(){
 		$rw = $this->uri->segment(3,0);
