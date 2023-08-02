@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <!-- <title><?php echo $title; ?> &mdash; Aplikasi Perpindahan Penduduk</title> -->
   <title>Sistem Informasi Invetarisasi Usulan Kelurahan</title>
   <link rel="icon" href="<?php echo base_url(); ?>assets/logo.png"  type="image/png">
   <!-- General CSS Files -->

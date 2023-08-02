@@ -21,14 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <li style="margin-top: 5px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/data_musrenbang">Daftar Usulan Musrenbang Kelurahan</a></li>
               <li style="margin-top: 5px;margin-bottom: 5px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_musrenbang">Tambah Data Musrenbang</a></li>
-              <!-- <li style="margin-top: 0px;margin-bottom: 0px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/kamus_usulan">Kamus Usulan Bappeda</a></li> -->
-              <!-- <li style="margin-top: 10px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_musrenbang">Tambah Data Kamus Usulan Bappeda</a></li> -->
               <li style="margin-top: 5px;margin-bottom: 10px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/data_pokir">Daftar Pokir Kelurahan</a></li>
               <li style="margin-top: 5px;margin-bottom: 5px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_pokir">Tambah Data Pokir Kelurahan</a></li>
-              <!-- <li style="margin-top: 25px;margin-bottom: 15px;" class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/add_pindah_keluar">Tambah Data Perpindahan Keluar</a></li>
-              <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dashboard/impor_data_pindah">Impor Data Perpindahan</a></li> -->
-                <!-- <li class="<?php echo $this->uri->segment(2) == 'index_0' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/index_0">General Dashboard</a></li>
-                <li class="<?php echo $this->uri->segment(2) == '' || $this->uri->segment(2) == 'index' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>dist/index">Ecommerce Dashboard</a></li> -->
+
               </ul>
             </li>
             <li class="dropdown">
