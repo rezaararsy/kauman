@@ -254,31 +254,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
     <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
 
   <script>
-    var blimbing = ["Arjosari", "Balearjosari", "Blimbing", "Bunulrejo", "Jodipan", "Kesatrian", "Pandanwangi", "Polehan", "Polowijen", "Purwantoro", "Purwodadi"];
-    var kodeblimbing = [1002,1001,1005,1008,1011,1009,1006,1010,1003,1007,1004]
-    var kedungkandang = ["Arjowinangun", "Bumiayu", "Buring", "Cemorokandang", "Kedungkandang", "Kotalama", "Lesanpuro", "Madyopuro", "Mergosono", "Sawojajar", "Tlogowaru", "Wonokoyo"];
-    var kodekedungkandang = [1011,1003,1005,1010,1006,1001,1007,1009,1002,1008,1012,1004];
-    var klojen = ["Bareng", "Gadingasri", "Kasin", "Kauman", "Kiduldalem", "Klojen", "Oro-Oro Dowo", "Penanggungan", "Rampal Celaket", "Samaan", "Sukoharjo"];
-    var kodeklojen = [1009,1010,1006,1007,1004,1001,1008,1011,1002,1003,1005];
-    var lowokwaru = ["Dinoyo", "Jatimulyo", "Ketawanggede", "Lowokwaru", "Merjosari", "Mojolangu", "Sumbersari", "Tasikmadu", "Tlogomas", "Tulusrejo", "Tunggulwulung", "Tunjungsekar"];
-    var kodelowokwaru = [1004,1007,1006,1011,1002,1009,1005,1012,1003,1010,1001,1008];
-    var sukun = ["Bakalankrajan", "Bandulan", "Bandungrejosari", "Ciptomulyo", "Gadang", "Karangbesuki", "Kebonsari", "Mulyorejo", "Pisangcandi", "Sukun", "Tanjungrejo"];
-    var kodesukun = [1011,1008,1004,1001,1002,1009,1003,1010,1007,1005,1006];
 
-    var rtblimbing = [34, 45, 55, 147, 85, 70, 137, 74, 38, 157, 95];
-    var rwblimbing = [5, 7, 10, 21, 8, 12, 14, 7, 6, 24, 13];
-
-    var rtkedungkandang = [64, 57, 47, 63, 48, 141, 94, 133, 77, 120, 37, 27];
-    var rwkedungkandang = [10, 6, 9, 11, 7, 11, 11, 17, 6, 16, 8, 5];
-
-    var rtklojen = [78, 50, 96, 67, 49, 47, 97, 45, 35, 58, 57];
-    var rwklojen = [9, 6, 11, 10, 8, 7, 10, 8, 6, 8, 7];
-
-    var rtlowokwaru = [51, 80, 32, 104, 86, 117, 40, 33, 49, 75, 59, 73];
-    var rwlowokwaru = [7, 11, 5, 15, 12, 19, 7, 6, 9, 16, 6, 8];
-
-    var rtsukun = [49, 67, 129, 62, 72, 83, 46, 60, 87, 113, 138];
-    var rwsukun = [7, 8, 13, 5, 9, 9, 5, 7, 11, 9, 13];
     var d = "";
     var id = 0;
     var kecdata = 0;
@@ -790,7 +766,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
             $('#table_id_pokir2').DataTable({
                 processing: true,
                 serverSide: true,
-                      ajax: {"url": "<?php echo base_url().'dashboard/data_json_pokir/'?>", "type": "POST"},
+                      ajax: {"url": "<?php echo base_url().'pengguna/data_json_pokir/'?>", "type": "POST"},
                       columns: [
                             {"data": "id_pokir"},
                             {"data": "prioritas"},
@@ -1303,10 +1279,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
                 $('[name="skpwni"]').val(skpwni);
                 $('[name="tgl_pindah"]').val(tgl_pindah);
                 $('[name="alamat_rt"]').val(alamat_rt);
-          });
-
-
-          
+          });          
   </script>
 </body>
 </html>

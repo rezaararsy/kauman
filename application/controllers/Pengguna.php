@@ -69,6 +69,12 @@ class Pengguna extends CI_Controller {
 		
 	}
 
+	public function data_json_pokir(){
+		header('Content-Type: application/json');
+			echo $this->m_data->getDataPokir();
+		
+	}
+
 	function deleteData(){ 
         $kode=$this->input->post('id');
         $this->db->where('id',$kode);

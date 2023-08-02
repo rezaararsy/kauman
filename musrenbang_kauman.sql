@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jul 2023 pada 10.45
+-- Waktu pembuatan: 02 Agu 2023 pada 02.49
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.0.25
 
@@ -267,8 +267,7 @@ INSERT INTO `usulan` (`id_usulan`, `no`, `profil`, `urusan`, `usulan`, `permasal
 (135, 1106, 'Lurah Kauman', 'Kecamatan', 'Pengadaan bibit tanaman hias (Kecamatan Klojen)', 'Keindahan Lingkungan (RW 06 P4)', 'RT 01 RW 06, Kota Malang', 'Kecamatan Klojen', '10 paket', 2000000, 'SARPRAS', 'Tidak Diakomodir', '', ''),
 (136, 1107, 'Lurah Kauman', 'Kecamatan', 'Gorong-gorong Diameter 40 cm (Kecamatan Klojen)', 'Gorong-Gorong Rusak (RW 02 P4)', 'Sepanjang Jl. A.R. Hakim gg 4 RT 02 RW 02, Kota Malang', 'Kecamatan Klojen', '100 m', 40150000, 'SARPRAS', 'Tidak Diakomodir', '', ''),
 (137, 1108, 'Lurah Kauman', 'Kecamatan', 'Gorong-gorong Diameter 30 cm (Kecamatan Klojen)', 'Gorong-Gorong Ambles (RW 03 P2)', 'RT 01, 03, 05, 06 RW 03 (Depan P. Reza, Depan Pondok, Depan Bu Emi, Depan P. Ludik), Kota Malang', 'Kecamatan Klojen', '200 m', 73000000, 'SARPRAS', 'Tidak Diakomodir', '', ''),
-(138, 1109, 'Lurah Kauman', 'Kecamatan', 'Gorong-gorong Diameter 30 cm (Kecamatan Klojen)', 'Gorong-Gorong Ambles/Rusak (RW 05 P3)', 'RT 04, 06 RW 05, Kota Malang', 'Kecamatan Klojen', '62 m', 22630000, 'SARPRAS', 'Tidak Diakomodir', '', ''),
-(139, NULL, NULL, 'A', 'B', 'C', 'D', 'Kecamatan Klojen', '1', 2, 'SARPAS', 'Diakomodir', '2023', '8');
+(138, 1109, 'Lurah Kauman', 'Kecamatan', 'Gorong-gorong Diameter 30 cm (Kecamatan Klojen)', 'Gorong-Gorong Ambles/Rusak (RW 05 P3)', 'RT 04, 06 RW 05, Kota Malang', 'Kecamatan Klojen', '62 m', 22630000, 'SARPRAS', 'Tidak Diakomodir', '', '');
 
 --
 -- Indexes for dumped tables
@@ -312,7 +311,7 @@ ALTER TABLE `musrenbang`
 -- AUTO_INCREMENT untuk tabel `pokir`
 --
 ALTER TABLE `pokir`
-  MODIFY `id_pokir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pokir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
