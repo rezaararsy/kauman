@@ -86,29 +86,10 @@ $this->load->view('dist/_partials/header1');
                             <th>RW</th>
                             <th>Tahun</th>
                      
-                            <!-- <th>Alamat di RT</th>
-                            <th>Tgl Pindah</th>
-                            <th>Jenis Perpindahan</th> -->
-                            <!-- <th>Action</th> -->
+
                           </tr>
                         </thead>
-                        <!-- <tbody>                                 
-                          <tr>
-                            <td>
-                              1
-                            </td>
-                            <td>Reza Ararsy</td>
-                            <td>
-                              Joyogrand Blok B1/03
-                            </td>
-                            <td>
-                                2018-01-20
-                            </td>
-                            <td>Pindah Masuk</td>
-                            <td><a href="#" class="btn btn-primary">Action</a></td>
-                          </tr>
 
-                        </tbody> -->
                       </table>
                     </div>
                   </div>
