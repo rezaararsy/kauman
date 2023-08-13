@@ -68,8 +68,8 @@ class Dashboard extends CI_Controller {
 
 
 	public function data_json_musrenbang(){
-		$rw = $this->uri->segment(3,0);
-		$jenis = $this->uri->segment(4,0);
+		$rw = $this->uri->segment(3);
+		$jenis = $this->uri->segment(4);
 		if ($rw == 0 && $jenis == 0)
 		{
 			header('Content-Type: application/json');
@@ -81,6 +81,10 @@ class Dashboard extends CI_Controller {
 			echo $this->m_data->getDataMusrenbang4($rw);
 		}
 		elseif($jenis != 0 && $rw == 0)
+		{	
+			header('Content-Type: application/json');
+			echo $this->m_data->getDataMusrenbang5($jenis);
+		}elseif($rw == 0 && $jenis != "0")
 		{	
 			header('Content-Type: application/json');
 			echo $this->m_data->getDataMusrenbang5($jenis);

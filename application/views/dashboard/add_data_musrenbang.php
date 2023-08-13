@@ -27,27 +27,27 @@ $this->load->view('dist/_partials/header1');
                   <div class="card-body">
                     <div class="form-group">
                       <label>Tahun Usulan</label>
-                      <input required name="tahun" type="number" class="form-control">
+                      <input name="tahun" type="number" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Urusan</label>
-                      <input required name="urusan" type="text" class="form-control">
+                      <input name="urusan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Usulan yang ingin dimasukkan</label>
-                      <textarea required name="usulan" rows="3" class="form-control"></textarea>
+                      <textarea name="usulan" rows="3" class="form-control"></textarea>
                     </div>   
                     <div class="form-group">
                       <label>Permasalahan</label>
-                      <input required name="permasalahan" type="text" class="form-control">
+                      <input name="permasalahan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Alamat</label>
-                      <input required name="alamat" type="text" class="form-control">
+                      <input name="alamat" type="text" class="form-control">
                     </div>             
                     <div class="form-group">
                       <label>Jenis Usulan</label>
-                      <select required name="jenis" class="form-control">
+                      <select name="jenis" class="form-control">
                         <option disabled selected value="">Pilih Jenis Usulan</option>
                         <option value="SARPRAS">SARPRAS</option>
                         <option value="LK">LK</option>
@@ -56,7 +56,7 @@ $this->load->view('dist/_partials/header1');
                     </div>
                     <div class="form-group">
                       <label>Sasaran SKPD</label>
-                      <select required name="skpd_tujuan" class="form-control">
+                      <select name="skpd_tujuan" class="form-control">
                         <option disabled selected value="">Pilih SKPD</option>
                         <option value="Kecamatan Klojen">Kecamatan Klojen</option>
                         <option value="Sekretariat Daerah">Sekretariat Daerah</option>
@@ -84,8 +84,9 @@ $this->load->view('dist/_partials/header1');
                     </div> 
                     <div class="form-group">
                       <label>RW</label>
-                      <select required name="rw" class="form-control">
+                      <select name="rw" class="form-control">
                         <option disabled selected value="">Pilih RW</option>
+                        <option value="">Dikosongkan</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -100,15 +101,15 @@ $this->load->view('dist/_partials/header1');
                     </div>
                     <div class="form-group">
                       <label>Koefisien</label>
-                      <input required name="koefisien" type="text" class="form-control">
+                      <input name="koefisien" type="text" class="form-control">
                     </div>    
                     <div class="form-group">
                       <label>Anggaran</label>
-                      <input required name="anggaran" type="text" class="form-control">
+                      <input name="anggaran" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Keterangan</label>
-                      <select required name="keterangan" class="form-control">
+                      <select name="keterangan" class="form-control">
                         <option disabled selected value="">Pilih Keterangan</option>
                         <option value="Diakomodir">Diakomodir</option>
                         <option value="Tidak Diakomodir">Tidak Diakomodir</option>

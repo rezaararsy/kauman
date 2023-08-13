@@ -28,35 +28,35 @@ $this->load->view('dist/_partials/header1');
 
                     <div class="form-group">
                       <label>Prioritas</label>
-                      <input required name="prioritas" type="text" class="form-control">
+                      <input name="prioritas" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Alamat</label>
-                      <input required name="alamat" type="text" class="form-control">
+                      <input name="alamat" type="text" class="form-control">
                     </div>  
                     <div class="form-group">
                       <label>Kecamatan</label>
-                      <input required name="kecamatan" type="text" class="form-control">
+                      <input name="kecamatan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Kelurahan</label>
-                      <input required name="kelurahan" type="text" class="form-control">
+                      <input name="kelurahan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Koefisien</label>
-                      <input required name="koefisien" type="text" class="form-control">
+                      <input name="koefisien" type="text" class="form-control">
                     </div>    
                     <div class="form-group">
                       <label>Nilai Usulan</label>
-                      <input required name="nilai_usulan" type="text" class="form-control">
+                      <input name="nilai_usulan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Nilai Akomodir</label>
-                      <input required name="nilai_akomodir" type="text" class="form-control">
+                      <input name="nilai_akomodir" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Sasaran OPD</label>
-                      <select required name="opd_tujuan" class="form-control">
+                      <select name="opd_tujuan" class="form-control">
                         <option disabled selected value="">Pilih OPD</option>
                         <option value="Kecamatan Klojen">Kecamatan Klojen</option>
                         <option value="Sekretariat Daerah">Sekretariat Daerah</option>
@@ -84,7 +84,7 @@ $this->load->view('dist/_partials/header1');
                     </div> 
                     <div class="form-group">
                       <label>Keterangan</label>
-                      <input required name="keterangan" type="text" class="form-control">
+                      <input name="keterangan" type="text" class="form-control">
                     </div>          
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary">Submit</button>

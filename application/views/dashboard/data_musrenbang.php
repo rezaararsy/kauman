@@ -196,6 +196,7 @@ $this->load->view('dist/_partials/header1');
                       <label>RW</label>
                       <select name="rw" class="form-control">
                         <option disabled selected value="">Pilih RW</option>
+                        <option value="">Dikosongkan</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
