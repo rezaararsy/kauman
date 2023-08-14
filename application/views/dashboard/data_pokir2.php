@@ -25,10 +25,10 @@ $this->load->view('dist/_partials/header1');
                             <th class="text-center">
                               #
                             </th>
-                            <th>Prioritas</th>
+                            <th>Usulan</th>
                             <th>Alamat</th>
                             <th>Kecamatan</th>
-                            <th>Kelurahan</th>
+                            <th>Tahun</th>
                             <th>Koefisien</th>
                             <th>Nilai Usulan</th>
                             <th>Nilai Akomodir</th>

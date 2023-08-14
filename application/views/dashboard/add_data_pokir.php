@@ -27,7 +27,7 @@ $this->load->view('dist/_partials/header1');
                   <div class="card-body">
 
                     <div class="form-group">
-                      <label>Prioritas</label>
+                      <label>Usulan</label>
                       <input name="prioritas" type="text" class="form-control">
                     </div>
                     <div class="form-group">
@@ -39,7 +39,7 @@ $this->load->view('dist/_partials/header1');
                       <input name="kecamatan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                      <label>Kelurahan</label>
+                      <label>Tahun</label>
                       <input name="kelurahan" type="text" class="form-control">
                     </div>
                     <div class="form-group">

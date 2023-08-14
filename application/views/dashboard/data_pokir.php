@@ -25,10 +25,10 @@ $this->load->view('dist/_partials/header1');
                             <th class="text-center">
                               #
                             </th>
-                            <th>Prioritas</th>
+                            <th>Usulan</th>
                             <th>Alamat</th>
                             <th>Kecamatan</th>
-                            <th>Kelurahan</th>
+                            <th>Tahun</th>
                             <th>Koefisien</th>
                             <th>Nilai Usulan</th>
                             <th>Nilai Akomodir</th>
@@ -86,7 +86,7 @@ $this->load->view('dist/_partials/header1');
                     <div class="modal-body">
                       <input type="hidden" name="id_pokir" class="form-control" required>
                       <div class="form-group">
-                      <label>Prioritas</label>
+                      <label>Usulan</label>
                       <input name="prioritas" type="text" class="form-control">
                     </div>
                     <div class="form-group">
@@ -98,7 +98,7 @@ $this->load->view('dist/_partials/header1');
                       <input name="kecamatan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                      <label>Kelurahan</label>
+                      <label>Tahun</label>
                       <input name="kelurahan" type="text" class="form-control">
                     </div>
                     <div class="form-group">
